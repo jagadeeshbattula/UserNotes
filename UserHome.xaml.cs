@@ -34,9 +34,16 @@ namespace UserNotes
 
             if(id != null)
             {
+                txtUserId.Text = id;
+
                 ViewUserNotes(id);
+
+                
             }
+
         }
+
+        
 
         private void ViewUserNotes(string id)
         {
@@ -71,5 +78,42 @@ namespace UserNotes
             }
         }
 
+        private void btnSaveNote_Click(object sender, RoutedEventArgs e)
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["connect"].ConnectionString;
+            int Inserted = 0;
+
+            string query = "insert into tblNotes(user_id, note) values (" + (txtUserId.Text).ToString() + ", '" + txtNewNote.Text.ToString() + "')";
+
+            try
+            {
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand(query, sqlConnection);
+                Inserted = cmd.ExecuteNonQuery();
+
+                if(Inserted != 0)
+                {
+                    UserHome userHome = new UserHome((txtUserId.Text).ToString());
+
+                    this.NavigationService.Navigate(userHome, (txtUserId.Text).ToString());
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
+        
     }
 }

@@ -9,23 +9,33 @@
       Title="UserHome" Height="450" Width="450" FontSize="14" Background="#04c582">
 
     <Border Background="#2e3137" CornerRadius="20" Margin="20">
+
         <StackPanel Margin="20">
 
             <Label Content="Welcome to Your Home Page" Foreground="White" FontSize="25" HorizontalAlignment="Center" />
+
             <Separator/>
 
-            <DataGrid Name="gridUserNotes" AutoGenerateColumns="False" Background="#545d6a">
+            <TextBox x:Name="txtUserId" Visibility="Hidden"/>
+
+            <DataGrid x:Name="gridUserNotes" AutoGenerateColumns="False" Background="#545d6a" Width="351" Height="115" Margin="20">
 
                 <DataGrid.Columns>
 
                     <DataGridTextColumn x:Name="Note" Binding="{Binding note}"/>
-                    
+
                 </DataGrid.Columns>
 
             </DataGrid>
 
+            <Separator/>
+
+            <TextBox x:Name="txtNewNote" HorizontalAlignment="Left" Width="332" Margin="20,20,0,20" Height="61"/>
+
+            <Button x:Name="btnSaveNote" Background="#545d6a" Height="40" Margin="160,0,109,0" VerticalAlignment="Bottom" Click="btnSaveNote_Click" Content="Save Note"/>
+
         </StackPanel>
+
     </Border>
-    
 
 </Page>
