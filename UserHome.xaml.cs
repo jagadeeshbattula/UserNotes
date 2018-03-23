@@ -23,7 +23,6 @@ namespace UserNotes
     /// </summary>
     public partial class UserHome : Page
     {
-        string UserId;
         public UserHome()
         {
             InitializeComponent();
@@ -31,12 +30,46 @@ namespace UserNotes
 
         public UserHome(string id)
         {
-            UserId = id;
-
             InitializeComponent();
-            
+
+            if(id != null)
+            {
+                ViewUserNotes(id);
+            }
         }
 
-        
+        private void ViewUserNotes(string id)
+        {
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = ConfigurationManager.ConnectionStrings["connect"].ConnectionString;
+            DataTable dt = new DataTable();
+
+            string query = "select * from tblNotes where user_id = " + "'" + id + "'";
+
+            try
+            {
+                if (sqlConnection.State == ConnectionState.Closed)
+                {
+                    sqlConnection.Open();
+                }
+
+                SqlDataAdapter da = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand(query, sqlConnection);
+                da.SelectCommand = cmd;
+                da.Fill(dt);
+
+                gridUserNotes.ItemsSource = dt.DefaultView;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+
     }
 }

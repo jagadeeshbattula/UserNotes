@@ -8,7 +8,24 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UserHome" Height="450" Width="450" FontSize="14" Background="#04c582">
 
-    <Grid>
-        <TextBlock x:Name="txtUserId" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    </Grid>
+    <Border Background="#2e3137" CornerRadius="20" Margin="20">
+        <StackPanel Margin="20">
+
+            <Label Content="Welcome to Your Home Page" Foreground="White" FontSize="25" HorizontalAlignment="Center" />
+            <Separator/>
+
+            <DataGrid Name="gridUserNotes" AutoGenerateColumns="False" Background="#545d6a">
+
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn x:Name="Note" Binding="{Binding note}"/>
+                    
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </StackPanel>
+    </Border>
+    
+
 </Page>
