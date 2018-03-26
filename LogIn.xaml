@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UserNotes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="450" d:DesignWidth="450"
       Title="LogIn" Height="450" Width="450" FontSize="14" Background="#04c582">
 
     <Border Background="#2e3137" CornerRadius="20" Margin="20">

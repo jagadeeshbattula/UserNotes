@@ -10,6 +10,8 @@ namespace UserNotes
 {
     /// <summary>
     /// Interaction logic for App.xaml
+    /// 
+    /// @author Jagadeesh Battula jagadeesh@goftx.com
     /// </summary>
     public partial class App : Application
     {

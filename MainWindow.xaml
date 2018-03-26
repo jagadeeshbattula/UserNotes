@@ -5,13 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserNotes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="457.803" Width="798.699">
+        Title="Notes" Height="585" Width="600">
 
-    <Frame x:Name="mainFrame"  Margin="30">
-        
-        
-        
-        
-    </Frame>
-
+    <Frame x:Name="mainFrame"  Margin="50"></Frame>
+    
 </Window>

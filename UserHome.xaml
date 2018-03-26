@@ -16,9 +16,7 @@
 
             <Separator/>
 
-            <TextBox x:Name="txtUserId" Visibility="Hidden"/>
-
-            <DataGrid x:Name="gridUserNotes" AutoGenerateColumns="False" Background="#545d6a" Width="351" Height="115" Margin="20">
+            <DataGrid x:Name="gridUserNotes" AutoGenerateColumns="False" Background="#545d6a" Width="351" Height="115">
 
                 <DataGrid.Columns>
 
@@ -28,11 +26,15 @@
 
             </DataGrid>
 
+            <TextBox x:Name="txtUserId" Visibility="Hidden"/>
+            
             <Separator/>
-
+            
             <TextBox x:Name="txtNewNote" HorizontalAlignment="Left" Width="332" Margin="20,20,0,20" Height="61"/>
 
-            <Button x:Name="btnSaveNote" Background="#545d6a" Height="40" Margin="160,0,109,0" VerticalAlignment="Bottom" Click="btnSaveNote_Click" Content="Save Note"/>
+            <Button x:Name="btnSaveNote" Background="#545d6a" Height="40" Margin="119,0,109,0" VerticalAlignment="Bottom" Click="btnSaveNote_Click" Content="Save Note"/>
+
+            <ProgressBar Name="prgLoad" Width="400" HorizontalAlignment="Center" Height="20" Margin="20" Maximum="100" Minimum="0"/>
 
         </StackPanel>
 
