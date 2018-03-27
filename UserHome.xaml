@@ -16,19 +16,22 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            
+
             <!--Row 0-->
             <Label Grid.Row="0" Content="Welcome to Your Home Page" Foreground="White" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10"/>
-            
+
+            <Button Name="btnLogOut" Grid.Row="0" Content="Log Out" HorizontalAlignment="Right" Margin="10" Background="#545d6a" Foreground="White" Click="btnLogOut_Click" />
+
             <!--Row 1-->
-            <DataGrid x:Name="gridUserNotes" Grid.Row="1"  x:FieldModifier="public" AutoGenerateColumns="False" Margin="10" CanUserAddRows="False">
+            <DataGrid x:Name="gridUserNotes" Grid.Row="1"  x:FieldModifier="public" AutoGenerateColumns="False" Margin="10" CanUserAddRows="False" MouseDoubleClick="gridUserNotes_MouseDoubleClick">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Notes" Binding="{Binding note}" Width="*" IsReadOnly="True"/>
-                    <DataGridTextColumn Header="Created At" Binding="{Binding created_at}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Created At" Binding="{Binding created_at, StringFormat={}\{0:dd/MM a\\t hh:mm tt\}}" IsReadOnly="True"/>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.HeaderTemplate>
                             <DataTemplate>
@@ -48,19 +51,20 @@
             </DataGrid>
 
             <!--Row 2-->
-            
-            <TextBox x:Name="txtUserId" Visibility="Hidden"/>
-            
-            <TextBox Grid.Row="2" x:Name="txtNewNote" Width="1000" Height="45" Margin="0,0,0,20" />
-            
-            <!--Row 3-->
-            <Button Grid.Row="3" x:Name="btnSubmitSaveNote" Background="SkyBlue" Height="25" Width="100" Content="Save Note" Click="btnSubmitSaveNote_Click" Margin="0,0,0,10"/>
+            <TextBox x:Name="txtViewNote" Grid.Row="2" Height="80" Margin="10" IsReadOnly="True" TextWrapping="WrapWithOverflow" />
 
-            <Button Grid.Row="3" x:Name="btnSubmitUpdateNote" Background="SkyBlue" Height="25" Width="100" Content="Update Note" Margin="566,0,334,10" Click="btnSubmitUpdateNote_Click"/>
+            <!--Row 3-->
+
+            <TextBox x:Name="txtUserId" Visibility="Hidden"/>
+
+            <TextBox Grid.Row="3" x:Name="txtNewNote" Height="45" Margin="10,0,10,20" TextWrapping="WrapWithOverflow"/>
+
+            <!--Row 4-->
+            <Button Grid.Row="3" x:Name="btnSubmitSaveNote" Background="SkyBlue" Height="25" Width="100" Content="Save Note" Click="btnSubmitSaveNote_Click" Margin="374,55,526,10" Grid.RowSpan="2" />
+
+            <Button Grid.Row="3" x:Name="btnSubmitUpdateNote" Background="SkyBlue" Height="25" Width="100" Content="Update Note" Click="btnSubmitUpdateNote_Click" Margin="566,55,334,10" Grid.RowSpan="2"/>
 
         </Grid>
-        
-        
 
     </Border>
 

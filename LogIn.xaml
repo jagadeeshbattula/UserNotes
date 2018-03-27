@@ -10,16 +10,43 @@
     <Border Background="#2e3137" CornerRadius="20" Margin="20">
         <StackPanel Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-            <Label Content="Log In" Foreground="White" FontSize="25" HorizontalAlignment="Center" />
+            <Grid>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Row="0" Grid.ColumnSpan="2" Content="Click below to" Foreground="White" FontSize="18" HorizontalAlignment="Center"/>
+
+                <Button Grid.ColumnSpan="2" Grid.Row="1" x:Name="btnLogin" Background="#545d6a" Foreground="White" FontSize="18" Content="Log In" HorizontalAlignment="Center" Click="btnLogin_Click"/>
+
+                <Button Grid.ColumnSpan="2" Grid.Row="1" x:Name="btnSignup" Background="#545d6a" Foreground="White" FontSize="18" Content="Sing Up" HorizontalAlignment="Center" Click="btnSignup_Click"/>
+
+            </Grid>
+            
+            <Separator/>
+            <Separator/>
+
+            <Label Name="lblTitle" Foreground="White" FontSize="25" HorizontalAlignment="Center" />
             <Separator/>
 
             <Label Content="User Name" Foreground="white" />
             <TextBox Name="txtUsername" Background="#545d6a" Foreground="White" FontSize="18"/>
 
             <Label Content="Password" Foreground="white" />
-            <TextBox Name="txtPassword" Background="#545d6a" Foreground="White" FontSize="18"/>
+            <PasswordBox Name="txtPassword" Background="#545d6a" Foreground="White" FontSize="18"/>
 
-            <Button Name="btnSubmit" Background="#545d6a" Foreground="White" FontSize="18" Content="Submit" Margin="60,10" Click="btnSubmit_Click"/>
+            <Label Name="lblConformPassword" Content="Conform Password" Foreground="white" Visibility="Hidden"/>
+            <PasswordBox Name="txtConformPassword" Background="#545d6a" Foreground="White" FontSize="18" Visibility="Hidden"/>
+            
+            <Button x:Name="btnLoginSubmit" Background="#545d6a" Foreground="White" FontSize="18" Content="Submit Log In" Margin="60,10" Click="btnLoginSubmit_Click"/>
+
+            <Button Name="btnSignupSubmit" Background="#545d6a" Foreground="White" FontSize="18" Content="Submit Sign Up" Margin="60,10" Click="btnSignupSubmit_Click"/>
 
         </StackPanel>
     </Border>
