@@ -5,38 +5,62 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UserNotes"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="UserHome" Height="450" Width="450" FontSize="14" Background="#04c582">
+      FontSize="14" Background="#04c582">
 
     <Border Background="#2e3137" CornerRadius="20" Margin="20">
 
-        <StackPanel Margin="20">
+        <Grid>
 
-            <Label Content="Welcome to Your Home Page" Foreground="White" FontSize="25" HorizontalAlignment="Center" />
-
-            <Separator/>
-
-            <DataGrid x:Name="gridUserNotes" AutoGenerateColumns="False" Background="#545d6a" Width="351" Height="115">
-
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <!--Row 0-->
+            <Label Grid.Row="0" Content="Welcome to Your Home Page" Foreground="White" FontSize="25" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10"/>
+            
+            <!--Row 1-->
+            <DataGrid x:Name="gridUserNotes" Grid.Row="1"  x:FieldModifier="public" AutoGenerateColumns="False" Margin="10" CanUserAddRows="False">
                 <DataGrid.Columns>
-
-                    <DataGridTextColumn x:Name="Note" Binding="{Binding note}"/>
-
+                    <DataGridTextColumn Header="Notes" Binding="{Binding note}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Created At" Binding="{Binding created_at}" IsReadOnly="True"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="Actions" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button x:Name="updateBtn" Content="Update" Background="CornflowerBlue" Click="updateBtn_Click"/>
+                                    <Button x:Name="deleteBtn" Content="Delete" Background="Brown" Click="deleteBtn_Click"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
-
             </DataGrid>
 
+            <!--Row 2-->
+            
             <TextBox x:Name="txtUserId" Visibility="Hidden"/>
             
-            <Separator/>
+            <TextBox Grid.Row="2" x:Name="txtNewNote" Width="1000" Height="45" Margin="0,0,0,20" />
             
-            <TextBox x:Name="txtNewNote" HorizontalAlignment="Left" Width="332" Margin="20,20,0,20" Height="61"/>
+            <!--Row 3-->
+            <Button Grid.Row="3" x:Name="btnSubmitSaveNote" Background="SkyBlue" Height="25" Width="100" Content="Save Note" Click="btnSubmitSaveNote_Click" Margin="0,0,0,10"/>
 
-            <Button x:Name="btnSaveNote" Background="#545d6a" Height="40" Margin="119,0,109,0" VerticalAlignment="Bottom" Click="btnSaveNote_Click" Content="Save Note"/>
+            <Button Grid.Row="3" x:Name="btnSubmitUpdateNote" Background="SkyBlue" Height="25" Width="100" Content="Update Note" Margin="566,0,334,10" Click="btnSubmitUpdateNote_Click"/>
 
-            <ProgressBar Name="prgLoad" Width="400" HorizontalAlignment="Center" Height="20" Margin="20" Maximum="100" Minimum="0"/>
-
-        </StackPanel>
+        </Grid>
+        
+        
 
     </Border>
 

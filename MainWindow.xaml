@@ -4,9 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserNotes"
-        mc:Ignorable="d"
-        Title="Notes" Height="585" Width="600">
+        mc:Ignorable="d" ResizeMode="CanMinimize"
+        Title="Notes" Height="800" Width="1200">
 
-    <Frame x:Name="mainFrame"  Margin="50"></Frame>
-    
+    <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden" Margin="0,0,0,0"/>
+
 </Window>

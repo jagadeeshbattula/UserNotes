@@ -17,3 +17,9 @@ c:\users\jagadeesh.battula\source\repos\UserNotes\UserNotes\obj\Debug\UserNotes.
 c:\users\jagadeesh.battula\source\repos\UserNotes\UserNotes\obj\Debug\UserNotes.csproj.CoreCompileInputs.cache
 c:\users\jagadeesh.battula\source\repos\UserNotes\UserNotes\obj\Debug\UserNotes.exe
 c:\users\jagadeesh.battula\source\repos\UserNotes\UserNotes\obj\Debug\UserNotes.pdb
+C:\Users\jagadeesh.battula\source\repos\UserNotes\UserNotes\bin\Debug\EntityFramework.dll
+C:\Users\jagadeesh.battula\source\repos\UserNotes\UserNotes\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jagadeesh.battula\source\repos\UserNotes\UserNotes\bin\Debug\EntityFramework.xml
+C:\Users\jagadeesh.battula\source\repos\UserNotes\UserNotes\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jagadeesh.battula\source\repos\UserNotes\UserNotes\obj\Debug\UserNotes_Content.g.cs
+C:\Users\jagadeesh.battula\source\repos\UserNotes\UserNotes\obj\Debug\UserNotes.csproj.CopyComplete

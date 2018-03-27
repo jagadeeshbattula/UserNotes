@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Linq;
 
 namespace UserNotes
 {
@@ -11,6 +12,7 @@ namespace UserNotes
     /// </summary>
     public partial class LogIn : Page
     {
+        WPFApplicationEntities _db = new WPFApplicationEntities();
         /*
          * Constructor for LogIn
          */
@@ -27,16 +29,14 @@ namespace UserNotes
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
 
-            string query                    = "select id from tblUser where username = " + "'" + txtUsername.Text + "'" + " and password = " + "'" + txtPassword.Text + "'";
-            object id                       = null;
-
-            DataConnection dataConnection   = new DataConnection();
-            id                              = dataConnection.Login(query);
-
-            if (id != null)
+            int id = (from user in _db.tblUsers
+                      where user.username == txtUsername.Text && user.password == txtPassword.Text
+                      select user.id).SingleOrDefault();
+            
+            if (id != 0)
             {
-                UserHome userHome = new UserHome(id.ToString());
-                this.NavigationService.Navigate(userHome, id.ToString());
+                UserHome userHome = new UserHome(id);
+                this.NavigationService.Navigate(userHome, id);
             }
             else
             {
